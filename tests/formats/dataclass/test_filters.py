@@ -294,7 +294,7 @@ class FiltersTests(FactoryTestCase):
         str_attr = AttrFactory.create(types=[type_str], tag=Tag.RESTRICTION)
         # intentionally using a double-quote in the pattern to test for a regression in
         # https://github.com/tefra/xsdata/issues/592
-        pattern = '([^\\ \\? > < \\* / " ": |]{1,256})'
+        pattern = '"([^\\ \\? > < \\* / " ": |]{1,256})'
         str_attr.restrictions.pattern = pattern
 
         result = self.filters.field_definition(self.obj, str_attr, None)
@@ -302,7 +302,7 @@ class FiltersTests(FactoryTestCase):
             "field(\n"
             "        default=None,\n"
             "        metadata={\n"
-            '            "pattern": r"([^\\ \\? > < \\* / \\" \\": |]{1,256})",\n'
+            '            "pattern": r"\\"([^\\ \\? > < \\* / \\" \\": |]{1,256})",\n'
             "        }\n"
             "    )"
         )

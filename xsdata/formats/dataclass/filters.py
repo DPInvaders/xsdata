@@ -40,7 +40,7 @@ class Filters:
 
     DEFAULT_KEY = "default"
     FACTORY_KEY = "default_factory"
-    UNESCAPED_DBL_QUOTE_REGEX = re.compile(r"([^\\])\"")
+    UNESCAPED_DBL_QUOTE_REGEX = re.compile(r"(^|[^\\])\"")
 
     __slots__ = (
         "substitutions",
